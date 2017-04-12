@@ -7,6 +7,10 @@ Rectangle
 {
     id: tabwidget
     color: "transparent"
+    //实现按钮互斥
+//    ExclusiveGroup {
+//       id: toolbtnGroup
+//    }
 
     function currentChanged(curIndex)
     {
@@ -14,40 +18,32 @@ Rectangle
         //console.log("111")
     }
 
-//    function pushLeftContent()
-//    {
-//        for(var i = 0;i<8;i++)
-//        {
-//            stack.push(page)
-//        }
-//    }
-
     ColumnLayout{
         id:columnContent
         anchors.fill: parent
-        anchors.left: tabwidget.left
+        spacing: 0
 
         RowLayout
         {
             id: toolbar
-            spacing: 40
+            spacing: 10
+            anchors.fill: parent
             anchors.left: parent.left
             anchors.leftMargin: 20
             anchors.right: parent.right
             anchors.rightMargin: 20
-            //Layout.fillWidth: true
-            //Layout.fillHeight: true
+            anchors.topMargin: 0
 
             property int current: 0
             onCurrentChanged:setCurrentToolBtn()
-            Layout.preferredHeight: 80
+            Layout.maximumHeight: 70
 
             function setCurrentToolBtn()
             {
-//                for(var i = 0; i < toolbar.children.length; i++)
-//                {
-//                    toolbar.children[i].state = (toolbar.current == i ? 'checked' : 'leave')
-//                }
+                for(var i = 0; i < toolbar.children.length; i++)
+                {
+                    toolbar.children[i].state = (toolbar.current == i ? 'checked' : 'leave')
+                }
                 tabwidget.currentChanged(toolbar.current)
             }
 
@@ -58,6 +54,7 @@ Rectangle
                 picSrc: "images/ico_Examine.png"
                 btnText:"电脑体检"
                 onClicked:toolbar.current=btnIndex
+                //exclusiveGroup: toolbtnGroup
             }
             ToolBtn
             {
@@ -65,6 +62,7 @@ Rectangle
                 picSrc: "images/ico_dsmain.png"
                 btnText:"木马查杀"
                 onClicked:toolbar.current=btnIndex
+                //exclusiveGroup: toolbtnGroup
             }
             ToolBtn
             {
@@ -72,6 +70,7 @@ Rectangle
                 picSrc: "images/ico_SysRepair.png"
                 btnText:"系统修复"
                 onClicked:toolbar.current=btnIndex
+                //exclusiveGroup: toolbtnGroup
             }
             ToolBtn
             {
@@ -79,6 +78,7 @@ Rectangle
                 picSrc: "images/ico_TraceCleaner.png"
                 btnText:"电脑清理"
                 onClicked:toolbar.current=btnIndex
+                //exclusiveGroup: toolbtnGroup
             }
             ToolBtn
             {
@@ -86,6 +86,7 @@ Rectangle
                 picSrc: "images/ico_SpeedupOpt.png"
                 btnText:"优化加速"
                 onClicked:toolbar.current=btnIndex
+                //exclusiveGroup: toolbtnGroup
             }
             ToolBtn
             {
@@ -93,6 +94,7 @@ Rectangle
                 picSrc: "images/ico_expert.png"
                 btnText:"电脑专家"
                 onClicked:toolbar.current=btnIndex
+                //exclusiveGroup: toolbtnGroup
             }
             ToolBtn
             {
@@ -100,6 +102,7 @@ Rectangle
                 picSrc: "images/ico_diannaomenzhen.png"
                 btnText:"电脑门诊"
                 onClicked:toolbar.current=btnIndex
+                //exclusiveGroup: toolbtnGroup
             }
             ToolBtn
             {
@@ -107,14 +110,13 @@ Rectangle
                 picSrc: "images/ico_softmgr.png"
                 btnText:"软件管家"
                 onClicked:toolbar.current=btnIndex
+                //exclusiveGroup: toolbtnGroup
             }
-//            Rectangle {
-
-//            }
-
             Image
             {
                 id: logo
+                //height: 45
+
                 anchors.right: parent.right
                 source: "images/logo.png"
             }
@@ -122,15 +124,11 @@ Rectangle
 
         RowLayout {
             spacing: 0
+            Layout.fillHeight: true
 
             Rectangle
             {
                 id:content
-                //anchors.fill: parent
-                //width:tabwidget.width
-                //anchors.top: toolbar.bottom
-                //anchors.topMargin: 30
-                //height: 500
                 color:"white"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -148,6 +146,7 @@ Rectangle
 
                 MainWidget
                 {
+                    state:"active"
                     Rectangle
                     {
                         anchors.fill: parent
@@ -155,11 +154,11 @@ Rectangle
                         color:"#FFC0C0C0"
                         Text
                         {
-                            font.pointSize: 50
+                            font.pointSize: 20
                             font.family: "微软雅黑"
                             color:"#FFFFFF"
                             anchors.centerIn: parent
-                            text:"你是天上人画中仙遥不可及难以靠近 \n留我在爱情迷局里寸步难行苟且至今"
+                            text:"终于找到借口趁着醉意上心头"
                         }
                     }
                 }
@@ -172,11 +171,11 @@ Rectangle
                         color:"#FFC0C0C0"
                         Text
                         {
-                            font.pointSize: 100
+                            font.pointSize: 20
                             font.family: "微软雅黑"
                             color:"#FFFFFF"
                             anchors.centerIn: parent
-                            text:"，"
+                            text:"表达我所有感受"
                         }
                     }
                 }
@@ -189,11 +188,11 @@ Rectangle
                         color:"#FFC0C0C0"
                         Text
                         {
-                            font.pointSize: 50
+                            font.pointSize: 20
                             font.family: "微软雅黑"
                             color:"#FFFFFF"
                             anchors.centerIn: parent
-                            text:"千里不留行"
+                            text:"寂寞渐浓沉默留在舞池角落"
                         }
                     }
                 }
@@ -206,11 +205,11 @@ Rectangle
                         color:"#FFC0C0C0"
                         Text
                         {
-                            font.pointSize: 50
+                            font.pointSize: 20
                             font.family: "微软雅黑"
                             color:"#FFFFFF"
                             anchors.centerIn: parent
-                            text:"。"
+                            text:"你说的太少或太多"
                         }
                     }
                 }
@@ -223,11 +222,11 @@ Rectangle
                         color:"#FFC0C0C0"
                         Text
                         {
-                            font.pointSize: 50
+                            font.pointSize: 20
                             font.family: "微软雅黑"
                             color:"#FFFFFF"
                             anchors.centerIn: parent
-                            text:"事了拂衣去"
+                            text:"都会让人更惶恐"
                         }
                     }
                 }
@@ -240,11 +239,11 @@ Rectangle
                         color:"#FFC0C0C0"
                         Text
                         {
-                            font.pointSize: 50
+                            font.pointSize: 20
                             font.family: "微软雅黑"
                             color:"#FFFFFF"
                             anchors.centerIn: parent
-                            text:"，"
+                            text:"谁任由谁放纵谁会先让出自由"
                         }
                     }
                 }
@@ -257,11 +256,11 @@ Rectangle
                         color:"#FFC0C0C0"
                         Text
                         {
-                            font.pointSize: 50
+                            font.pointSize: 20
                             font.family: "微软雅黑"
                             color:"#FFFFFF"
                             anchors.centerIn: parent
-                            text:"深藏功与名。"
+                            text:"最后一定总是我"
                         }
                     }
                 }
@@ -274,63 +273,24 @@ Rectangle
                         color:"#FFC0C0C0"
                         Text
                         {
-                            font.pointSize: 50
+                            font.pointSize: 20
                             font.family: "微软雅黑"
                             color:"#FFFFFF"
                             anchors.centerIn: parent
-                            text:"women"
+                            text:"我嫉妒你的爱气势如虹"
                         }
                     }
                 }
             }
-
-            /*StackView {
-                id: stack
-
-                //anchors.centerIn: parent
-
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                property var home: null
-            }
-
-            Component {
-                id: page
-
-                Rectangle {
-
-//                    color: Qt.rgba(stack.depth*0.1, stack.depth*0.2, stack.depth*0.3)
-
-//                    Text {
-//                        anchors.centerIn: parent
-//                        text: "depth - " + stack.depth
-//                        font.pointSize: 24
-//                        font.bold: true
-//                        color: stack.depth <= 4 ? Qt.lighter(parent.color) : Qt.darker(parent.color)
-//                    }
-
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    color:"white"
-                }
-            }*/
-
 
             Rectangle {
                 id:rightRectange
-                width:200
-                color:"red"
+                color:"#ffffff"
                 Layout.fillHeight: true
+                Layout.preferredWidth: 200
 
                 ColumnLayout {
                     id:rightColumnLayout
-                    //Layout.fillWidth: true
-                    //Layout.fillHeight: true
-    //                Layout.maximumWidth: 200
-    //                Layout.minimumWidth: 200
-                    //Layout.preferredWidth: 200
 
                     anchors.fill: parent
                     spacing: 0
@@ -338,89 +298,92 @@ Rectangle
                     Rectangle {
                         id:rightTopContent
 
-                        //Layout.fillWidth: true
-                        //Layout.fillHeight: true
-                        //Layout.minimumHeight: 100
-                        //Layout.maximumHeight: 100
                         Layout.preferredWidth: 200
                         Layout.preferredHeight: 200
-                        //Layout.margins: 0
 
-                        color:"green"
+                        color:"#ffffff"
                         GridLayout {
                             id:gridLayout
+                            anchors.fill: parent
                             rows: 2
                             columns: 3
-                            rowSpacing: 5
-                            columnSpacing: 2
-                            anchors.fill: parent
-                            Layout.margins: 0
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
+                            rowSpacing: 20
+                            columnSpacing: 20
+                            anchors.margins: 20
 
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:0
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"木马防火墙"
-                                //onClicked:toolbar.current=btnIndex
+                                width: 20
+                                height:20
+                                picSrc: "images/fireproof.png"
+                                text:"木马防火墙"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:1
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"360保镖"
-                                //onClicked:toolbar.current=btnIndex
+                                width: 20
+                                height:20
+                                picSrc: "images/triggerman.png"
+                                text:"360保镖"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:2
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"网购先赔"
-                                //onClicked:toolbar.current=btnIndex
+                                width: 20
+                                height:20
+                                picSrc: "images/net_shop.png"
+                                text:"网购先赔"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:3
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"木马防火墙"
-                                //onClicked:toolbar.current=btnIndex
+                                width: 20
+                                height:20
+                                picSrc: "images/fireproof.png"
+                                text:"木马防火墙"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:4
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"360保镖"
-                                //onClicked:toolbar.current=btnIndex
+                                width: 20
+                                height:20
+                                picSrc: "images/triggerman.png"
+                                text:"360保镖"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"网购先赔"
-                                //onClicked:toolbar.current=btnIndex
+                                width: 20
+                                height:20
+                                picSrc: "images/net_shop.png"
+                                text:"网购先赔"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
                         }
                     }
 
+                    //中间直线
+                    Rectangle{
+                       width:200
+                       height:1
+                       color:"#9AC0CD"
+                    }
+
                     Rectangle {
                         id:middleRectange
-                        color:"blue"
-                        //Layout.fillWidth: true
+                        color:"#ffffff"
                         Layout.preferredWidth: 200
                         Layout.preferredHeight: 32
 
                         RowLayout {
                             id: middleLayout
                             anchors.fill: parent
-
-                            Layout.fillWidth: true
-                            Layout.maximumWidth: 200
-                            Layout.minimumWidth: 200
-
-                            Layout.minimumHeight: 35
-                            Layout.maximumHeight: 35
-                            Layout.preferredHeight: 35
 
                             Text {
                                 id:middleText
@@ -438,9 +401,6 @@ Rectangle
                             ToolButton {
                                 id:middleBtn
                                 text:"更多"
-//                                width:32
-//                                height:32
-
                                 Layout.preferredWidth: 32
                                 Layout.preferredHeight: 20
 
@@ -469,85 +429,82 @@ Rectangle
 
                     Rectangle {
                         id:rightBottomContent
-                        color:"#CDB38B"
+                        color:"#ffffff"
 
                         Layout.fillHeight: true
                         Layout.preferredWidth: 200
-                        //Layout.preferredHeight: 200
-                        //Layout.fillWidth: true
-                        Layout.minimumHeight: 200
-    //                    Layout.maximumHeight: 32
 
                         GridLayout {
                             id:gridBottomLayout
+                            anchors.fill: parent
                             rows:3
                             columns: 3
-                            rowSpacing: 5
-                            columnSpacing: 2
-                            anchors.fill: parent
+                            rowSpacing: 20
+                            columnSpacing: 20
+                            anchors.margins: 30
 
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"健康精灵"
-                                //onClicked:toolbar.current=btnIndex
+                                picSrc: "images/jingling.png"
+                                text:"健康精灵"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"U盘鉴定器"
-                                //onClicked:toolbar.current=btnIndex
+                                picSrc: "images/upan.png"
+                                text:"U盘鉴定器"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"安全桌面"
-                                //onClicked:toolbar.current=btnIndex
+                                picSrc: "images/zhuomian.png"
+                                text:"安全桌面"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"游戏盒子"
-                                //onClicked:toolbar.current=btnIndex
+                                picSrc: "images/youxi.png"
+                                text:"游戏盒子"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"手机助手"
-                                //onClicked:toolbar.current=btnIndex
+                                picSrc: "images/shouji.png"
+                                text:"手机助手"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"鲁大师"
-                                //onClicked:toolbar.current=btnIndex
+                                picSrc: "images/ludashi.png"
+                                text:"鲁大师"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"360软件小助手"
-                                //onClicked:toolbar.current=btnIndex
+                                picSrc: "images/ruanjian.png"
+                                text:"360小助手"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"一键装机"
-                                //onClicked:toolbar.current=btnIndex
+                                picSrc: "images/zhuangji.png"
+                                text:"一键装机"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
-                            ToolBtn
+                            LabelBtn
                             {
-                                //index:5
-                                picSrc: "images/ico_TraceCleaner.png"
-                                btnText:"手机卫士"
-                                //onClicked:toolbar.current=btnIndex
+                                picSrc: "images/weishi.png"
+                                text:"手机卫士"
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
                             }
                         }
                     }

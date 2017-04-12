@@ -89,31 +89,6 @@ ApplicationWindow {
                 id:titleBar
                 height: 32
                 Layout.fillWidth: true
-                //在标题栏绘制圆角图片
-                /*Canvas {
-                    anchors.fill: parent
-                    contextType: "2d";
-                    property string menuBak: "qrc:/images/head_bg_3.png";
-
-                    onPaint: {
-                        context.lineWidth=4;
-                        context.strokeStyle="#494444";
-                        context.reset();
-                        context.beginPath();
-                        context.moveTo(0,parent.height);
-                        context.lineTo(0,10);
-                        context.arc(10,10,10,Math.PI,Math.PI*3/2,false);
-                        context.lineTo(parent.width-10,0);
-                        context.arc(parent.width-10,10,10,Math.PI*3/2,0,false);
-                        context.lineTo(parent.width,parent.height);
-                        context.clip();
-                        context.drawImage(menuBak,0,0,parent.width,parent.height);
-                        context.stroke();
-                        context.restore();
-                    }
-                    Component.onCompleted: loadImage(menuBak);
-                    onImageLoaded: requestPaint();
-                }*/
             }
             //中间内容区域
             ContentWidget{

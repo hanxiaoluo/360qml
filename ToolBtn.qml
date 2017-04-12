@@ -1,16 +1,24 @@
-﻿
-import QtQuick 2.0
+﻿import QtQuick 2.0
+import QtQuick.Controls 1.3
 
  Rectangle {
      id: toolbtn
-     height: 40
-     width: 40
+     height: 70
+     width: 70
      gradient: on
      property alias picSrc: pic.source
      property alias btnText: label.text
      property int index:0
      signal clicked(int btnIndex)
      property color bkColor: "#00FFFFFF"
+
+     //实现按钮互斥效果
+//     property bool checked: false
+//     property ExclusiveGroup exclusiveGroup: null
+//     onExclusiveGroupChanged: {
+//         if (exclusiveGroup)
+//             exclusiveGroup.bindCheckable(toolbtn)
+//     }
 
      Gradient
      {

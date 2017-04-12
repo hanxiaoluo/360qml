@@ -27,7 +27,6 @@
         <file>images/ico_softmgr.png</file>
         <file>images/ico_SpeedupOpt.png</file>
         <file>images/ico_SysRepair.png</file>
-        <file>images/ico_TraceCleaner.png</file>
         <file>images/ico_VulRepair.png</file>
         <file>images/logo.png</file>
         <file>images/medal.png</file>
@@ -41,5 +40,19 @@
         <file>images/skin_normal.png</file>
         <file>images/skin_pressed.png</file>
         <file>images/gray_medal.png</file>
+        <file>images/ico_TraceCleaner.png</file>
+        <file>images/fireproof.png</file>
+        <file>images/jingling.png</file>
+        <file>images/ludashi.png</file>
+        <file>images/net_shop.png</file>
+        <file>images/ruanjian.png</file>
+        <file>images/shouji.png</file>
+        <file>images/triggerman.png</file>
+        <file>images/upan.png</file>
+        <file>images/weishi.png</file>
+        <file>images/youxi.png</file>
+        <file>images/zhuangji.png</file>
+        <file>images/zhuomian.png</file>
+        <file>LabelBtn.qml</file>
     </qresource>
 </RCC>

@@ -9,16 +9,6 @@ Item {
     //opacity: 1
     //radius: 20
 
-
-//    Image
-//    {
-//        id: background
-//        anchors { top: parent.top; bottom: parent.bottom }
-//        anchors.fill: parent
-//        source: "qrc:/images/head_bg_3.jpg"
-//        fillMode: Image.PreserveAspectCrop
-//    }
-
     //左上角
     Item {
         id: leftTop
@@ -205,10 +195,6 @@ Item {
         isPressed = false
         //customPoint = undefined
     }
-
-//    function setMyCursor(direct) {
-
-//    }
 
     function positionChange(newPosition, directX, directY) { /*x轴方向*/ /*y轴方向*/
         if(!isPressed) return
